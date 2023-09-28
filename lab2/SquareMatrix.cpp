@@ -11,7 +11,7 @@ SquareMatrix::SquareMatrix(int n)
 
     for (int i = 0; i < n; i++) matrixArray[i] = new Number[n];
 
-    //задание матрицы по умолчанию
+    //setting the default matrix
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < n; j++) matrixArray[i][j] = 0;
@@ -76,12 +76,12 @@ Number** SquareMatrix::gauss()
     for (int i = 0; i < n - 1; i++)
     {
         int j = i;
-        //ищем строку, у которой a(i, j) != 0
+        //looking for a string where a(i, j) != 0
         while (j < n && matrix[j][i] == 0) j++;
 
-        if (j == n) continue; //если j == n - весь столбец состоит из 0
+        if (j == n) continue; //if j == n - the whole column consists of 0
 
-        //меняем i и j стороки местами
+        ////swapping the i and j lines
         for (int k = 0; k < n; k++) 
         {
             Number tmp = matrix[i][k];
@@ -89,7 +89,7 @@ Number** SquareMatrix::gauss()
             matrix[j][k] = tmp;
         }
 
-        //обнуляем столбец
+        //zeroing the column
         for (j = i + 1; j < n; j++) 
         {
             Number coef = matrix[j][i] / matrix[i][i];
@@ -106,13 +106,13 @@ Number SquareMatrix::determinant()
 {
     Number result = 1;
 
-    Number** matrix = gauss(); //получаем матрицы треугольного вида
+    Number** matrix = gauss(); //we get matrices of the triangular form
 
     for (int i = 0; i < n; i++)
     {
         /*
-        * так как матрица приведена к треугольному виду
-        * её определитель равен произведению диагональных элементов
+        * since the matrix is reduced to a triangular form
+        * its determinant is equal to the product of diagonal elements
         */
         result *= matrix[i][i]; 
 
@@ -126,13 +126,13 @@ Number SquareMatrix::determinant()
 
 int SquareMatrix::rang()
 {
-    int result = 0; //ранг матрицы
+    int result = 0; //matrix rank
 
-    Number** matrix = gauss(); //получаем матрицы треугольного вида
+    Number** matrix = gauss(); //we get matrices of the triangular form
 
     for (int i = 0; i < n; i++)
     {
-        if (matrix[i][i] != 0) result++; //если элемент на диагонали не 0, то ранг++
+        if (matrix[i][i] != 0) result++; //if the element on the diagonal is not 0, then the rank++
 
         delete[] matrix[i];
     }

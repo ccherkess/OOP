@@ -47,8 +47,8 @@ public:
 
 private:
 
-	double a; //реальная часть
-	double b; //мнимая часть
+	double a; //real part
+	double b; //image part
 
 };
 

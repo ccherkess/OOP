@@ -22,7 +22,7 @@ int ConsoleApplication::exec()
             return 0;
 
         case 1:
-            //заполнение матрицы значениями
+            //filling the matrix with values
             for (int i = 0; i < matrix.getN(); i++) {
                 for (int j = 0; j < matrix.getN(); j++) {
                     std::cout << "a[" << i + 1 << "][" << j + 1 << "] = ";

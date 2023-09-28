@@ -9,31 +9,31 @@ class SquareMatrix
 {
 public:
 
-    SquareMatrix(int n); //конструктор, который принимает на вход пор€док матрицы
+    SquareMatrix(int n); //a constructor that takes the order of the matrix as input
 
-    ~SquareMatrix(); //деструктор
+    ~SquareMatrix(); //destructor
 
-    SquareMatrix* transpore(); //функци€, котора€ создает и возвращает транспонированную матрицу
+    SquareMatrix* transpore(); //a function that creates and returns a transposed matrix
 
-    int rang(); //функци€, котора€ считает ранг матрицы
+    int rang(); //a function that counts the rank of a matrix
 
-    Number determinant(); //функци€, котора€ считает определитель матрицы
+    Number determinant(); //a function that counts the determinant of the matrix
 
-    Number* getCell(int i, int j); //получение a(i, j) €чейки матрицы
+    Number* getCell(int i, int j); //getting a(i, j) matrix cells
 
-    int getN(); //получение пор€дка матрицы
+    int getN(); //getting the order of the matrix
 
-    friend std::ostream& operator << (std::ostream& os, const SquareMatrix& matrix); //вывод матрицы в поток
+    friend std::ostream& operator << (std::ostream& os, const SquareMatrix& matrix); //output of the matrix to the stream
 
 private:
 
-    int n; //пор€док матрицы
+    int n; //matrix order
 
-    Number** matrixArray; //массив, хран€щий значени€ матрицы
+    Number** matrixArray; //array storing matrix values
 
-    Number** gauss(); //алгоритм гаусса, возвращает треугольную матрицу
+    Number** gauss(); //gauss algorithm, returns a triangular matrix
 
-    Number** cloneMatrixArray(); //копирование массива значений
+    Number** cloneMatrixArray(); //copying an array of values
 
 };
 
