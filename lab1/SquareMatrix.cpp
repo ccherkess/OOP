@@ -85,7 +85,7 @@ Number** SquareMatrix::gauss()
         for (int k = 0; k < n; k++) 
         {
             Number tmp = matrix[i][k];
-            matrix[i][k] = matrix[j][k];
+            matrix[i][k] = matrix[j][k] * -1;
             matrix[j][k] = tmp;
         }
 

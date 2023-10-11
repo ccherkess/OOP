@@ -82,10 +82,10 @@ Number** SquareMatrix::gauss()
         if (j == n) continue; //if j == n - the whole column consists of 0
 
         ////swapping the i and j lines
-        for (int k = 0; k < n; k++) 
+        for (int k = 0; k < n; k++)
         {
             Number tmp = matrix[i][k];
-            matrix[i][k] = matrix[j][k]  * -1;
+            matrix[i][k] = matrix[j][k] * -1;
             matrix[j][k] = tmp;
         }
 
@@ -121,7 +121,7 @@ Number SquareMatrix::determinant()
 
     delete[] matrix;
 
-    return result;
+    return (n == 1) ? result : result;
 }
 
 int SquareMatrix::rang()
@@ -158,5 +158,17 @@ std::ostream& operator << (std::ostream& os, const SquareMatrix& matrix)
         if (i != matrix.n - 1) os << std::endl;
     }
 
+    return os;
+}
+
+QString& operator<<(QString& os, const SquareMatrix& matrix)
+{
+    for (int i = 0; i < matrix.n; i++) {
+        for (int j = 0; j < matrix.n; j++) {
+            os << matrix.matrixArray[i][j];
+            os += " ";
+        }
+        os += "\n";
+    }
     return os;
 }
