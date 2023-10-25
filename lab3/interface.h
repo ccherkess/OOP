@@ -13,7 +13,7 @@ class interface : public QWidget
     Q_OBJECT
     QLineEdit*** numeratorInputs;
     QLineEdit*** denominatorInputs;
-    QPushButton* button1,* button2,* button3,* button4,* button5;
+    QPushButton* button1, * button2, * button3, * button4;
     QLabel* result, *** resultMatrix;
 
 public:
