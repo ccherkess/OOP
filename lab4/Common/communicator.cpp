@@ -1,4 +1,5 @@
 #include "communicator.h"
+#include <QDateTime>
 
 TCommunicator::TCommunicator(TCommParams& pars, QObject *parent) : QUdpSocket(parent)
 {
@@ -19,7 +20,7 @@ void TCommunicator::send(QByteArray msg)
     {
         writeDatagram(msg, params.sHost, params.sPort);
         
-        qDebug()<<"sended"<<msg;
+        qDebug() << QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss") + " sended: " + msg;
     }
 }
 
@@ -31,7 +32,7 @@ void TCommunicator::recieve()
         QByteArray msg(size,'\0');
         readDatagram(msg.data(), size);
 
-        qDebug()<<"recieved"<<msg;
+        qDebug()<< QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss") + " recieved: " + msg;
 
         emit recieved(msg);
     }

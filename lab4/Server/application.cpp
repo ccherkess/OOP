@@ -1,6 +1,8 @@
 #include "application.h"
 #include "SquareMatrix.h"
 
+#include <QDateTime>
+
 #include "../Common/common.h"
 
 TApplication::TApplication(int argc, char *argv[])
@@ -12,7 +14,7 @@ TApplication::TApplication(int argc, char *argv[])
 
     connect(comm,SIGNAL(recieved(QByteArray)),this,SLOT(recieve(QByteArray)));
 
-    qDebug() << "Server has started.";
+    qDebug() << QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss") + " server has started.";
 
 }
 
